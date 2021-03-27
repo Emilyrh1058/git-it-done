@@ -5,14 +5,14 @@ var limitWarningEl = document.querySelector("#limit-warning");
 var getRepoIssues = function (repo) {
     var apiUrl = "https://api.github.com/repos/" + repo + "/issues?direction=asc";
     fetch(apiUrl).then(function (reponse) {
-        if (response.ok) {
+      if (response.ok) {
         response.json().then(function(data) {
         displayIssues(data);
-            // check if api has paginated issues
-            if (response.headers.get("Link")) {
-                displayWarning(repo);
-            }
-        });
+      // check if api has paginated issues
+      if (response.headers.get("Link")) {
+        displayWarning(repo);
+      }
+      });
     } 
     else {
         console.log(response);
